@@ -28,6 +28,15 @@
     selectedIndexPath=nil;
     // Do any additional setup after loading the view.
 }
+/*
+ - (void)viewDidLoad {
+ [super viewDidLoad];
+ newsArray=[[NSMutableArray alloc]init];
+ selectedIndexPath=nil;
+ // Do any additional setup after loading the view.
+ }
+ 
+ */
 -(void)viewWillAppear:(BOOL)animated{
     [self getNews];
 }
