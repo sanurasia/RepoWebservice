@@ -30,7 +30,8 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
-#define kLoasderHeight (IS_IPHONE_5)? 568 : 480
+#define kLoasderHeight HEIGHT
+#define KLoaderWidth WIDTH
 #pragma font name
 
 #define FONT_CALIBRI    @"Calibri-Light"
@@ -85,7 +86,7 @@
 #define REFRESH_ACTIVITYSCREEN @"refreshActivity"
 #define REFRESH_NOTIFICATIONSCREEN @"refreshNotification"
 #define REFRESH_NOTIFICATIONSCREENWHILELOGIN @"refreshNotificationForLogin"
-
+#define KRemoveSlide_NOTIFICATION @"removeslider"
 
 #define pickImageArray  [[NSArray alloc] initWithObjects:@"Camera",@"CameraRoll",@"Cancel",nil]
 

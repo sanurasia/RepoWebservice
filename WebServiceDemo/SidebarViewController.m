@@ -8,7 +8,7 @@
 
 #import "SidebarViewController.h"
 #import "SWRevealViewController.h"
-
+#import "constant.h"
 
 @interface SidebarViewController ()
 
@@ -83,6 +83,10 @@
         
     }
     
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *dict=[[NSDictionary alloc]initWithObjectsAndKeys:[menuItems objectAtIndex:indexPath.row],@"text", nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:KRemoveSlide_NOTIFICATION object:nil userInfo:dict];
 }
 
 @end

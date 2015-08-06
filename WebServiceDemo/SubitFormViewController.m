@@ -58,12 +58,12 @@
         //Create the data to send
         NSMutableDictionary *dictSignUP = [[NSMutableDictionary alloc] init];
         [dictSignUP setValue:name.text forKey:@"Name"];
-        [dictSignUP setValue:email.text forKey:@"Email"];
+        [dictSignUP setValue:email.text forKey:@"EmailID"];
         [dictSignUP setValue:phoneNumber.text forKey:@"Mobile"];
         [dictSignUP setValue:@"1234567890ABCDEFGHO" forKey:@"IOSUDID"];
         [dictSignUP setValue:@"" forKey:@"AndroidUDID"];
         [dictSignUP setValue:[Dict valueForKey:@"UserID"] forKey:@"UserID"];
-        // [dictSignUP setValue:phoneNumber.text forKey:@"PhoneNumber"];
+         [dictSignUP setValue:descriptiontxt.text forKey:@"Description"];
         CLXURLConnection* temp = [[CLXURLConnection alloc] init];
         temp.delegate = self;
         

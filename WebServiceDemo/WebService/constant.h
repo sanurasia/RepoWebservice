@@ -58,6 +58,7 @@
 #define ALERT_CODE @"Please Enter Access Code !"
 #define POST_FEED @"Feed"
 #define POST_CONVERSATION @"Conversation"
+#define KDismissSliderNotification @"sliderNotification"
 
 
 

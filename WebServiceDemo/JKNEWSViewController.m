@@ -30,8 +30,10 @@
     [super viewDidLoad];
     tripArray = [[NSMutableArray alloc]init];
    
+       
     [self setRightNavigationButtons];
     [self setLeftNavigationButtons];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeSlider:) name:KRemoveSlide_NOTIFICATION object:nil];
     
     // Set the gesture
        // Do any additional setup after loading the view.
@@ -216,6 +218,9 @@
 - (void)rightBarButtonItem
 {
     [self performSegueWithIdentifier:@"tripSegue" sender:self];
+}
+-(void)removeSlider:(NSNotification*)not{
+       
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

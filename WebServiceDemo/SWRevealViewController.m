@@ -28,6 +28,7 @@
 #import <UIKit/UIGestureRecognizerSubclass.h>
 
 #import "SWRevealViewController.h"
+#import "constant.h"
 
 #pragma mark - SWDirectionPanGestureRecognizer
 
@@ -560,6 +561,8 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     
     // now set the desired initial position
     [self _setFrontViewPosition:initialPosition withDuration:0.0];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeSlider:) name:KRemoveSlide_NOTIFICATION object:nil];
 }
 
 
@@ -654,7 +657,13 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     
     [self setFrontViewPosition:toogledFrontViewPosition animated:animated];
 }
-
+-(void)removeSlider:(NSNotification*)not{
+    FrontViewPosition toogledFrontViewPosition = FrontViewPositionLeft;
+    if (_frontViewPosition <= FrontViewPositionLeft)
+        toogledFrontViewPosition = FrontViewPositionRight;
+    
+    [self setFrontViewPosition:toogledFrontViewPosition animated:YES];
+}
 - (void)rightRevealToggleAnimated:(BOOL)animated
 {
     FrontViewPosition toogledFrontViewPosition = FrontViewPositionLeft;

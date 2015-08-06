@@ -7,11 +7,10 @@
 //  http://wannachat.cloudapp.net/WannaChat.svc
 
 
-//#define BASEURL @"http://182.71.82.92/yourgymgf/yourgymgf.svc/"
-//#define BASEURL @"http://yourgymgf.cloudapp.net/yourgymgf.svc/"  //Existing url
-//#define BASEURL @"http://yourgymgfnew.cloudapp.net/YourGymGF.svc/" //New url
-//#define BASEURL @"http://yourgymgflive.cloudapp.net/YourGymGF.svc/" //New url
-#define BASEURL @"http://182.71.82.92/EmployeeTracker/ufuservices.svc/"
+
+//#define BASEURL @"http://182.71.82.92/EmployeeTracker/ufuservices.svc/"
+#define BASEURL @"http://182.71.82.92/EmployeeTracker/u4uservices.svc/"
+                 // http://182.71.82.92/EmployeeTracker/u4uServices.svc
 #define KUserSignUp [NSString stringWithFormat:@"%@UserSignUp",BASEURL]
 #define KUserLogin  [NSString stringWithFormat:@"%@UserLogin",BASEURL]
 #define KUploadFiles [NSString stringWithFormat:@"%@UploadFiles",BASEURL]

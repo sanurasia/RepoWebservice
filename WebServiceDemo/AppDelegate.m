@@ -270,7 +270,7 @@ AppDelegate *appDelegate=nil;
 - (void) showLoaderView
 {
     
-    loaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, kLoasderHeight)];
+    loaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KLoaderWidth, kLoasderHeight)];
     loaderView.backgroundColor = [UIColor blackColor];
     [loaderView setAlpha:0.7];
     activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
