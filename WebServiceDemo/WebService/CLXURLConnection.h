@@ -11,12 +11,14 @@
 //#define BASEURL @"http://182.71.82.92/EmployeeTracker/ufuservices.svc/"
 #define BASEURL @"http://182.71.82.92/EmployeeTracker/u4uservices.svc/"
                  // http://182.71.82.92/EmployeeTracker/u4uServices.svc
+#define BASEURLU4U @"http://u4uvoice.com/api/"
 #define KUserSignUp [NSString stringWithFormat:@"%@UserSignUp",BASEURL]
 #define KUserLogin  [NSString stringWithFormat:@"%@UserLogin",BASEURL]
 #define KUploadFiles [NSString stringWithFormat:@"%@UploadFiles",BASEURL]
 #define KForgotPassword [NSString stringWithFormat:@"%@ForgotPassword",BASEURL]
 #define KSubmitRequest  [NSString stringWithFormat:@"%@SubmitRequest",BASEURL]
-
+#define KU_GetCategories [NSString stringWithFormat:@"%@get_category_index",BASEURLU4U]
+#define KU_get_category_posts [NSString stringWithFormat:@"%@get_category_posts",BASEURLU4U]
 
 #define KEditProfile [NSString stringWithFormat:@"%@EditProfile",BASEURL]
 

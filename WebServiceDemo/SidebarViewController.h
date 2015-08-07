@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CLXURLConnection.h"
 
-@interface SidebarViewController : UITableViewController{
-
+@interface SidebarViewController : UIViewController<CXConnectionDelegate,UITableViewDataSource,UITableViewDataSource>{
+    IBOutlet UITableView *category_tableView;
 }
 
 @end

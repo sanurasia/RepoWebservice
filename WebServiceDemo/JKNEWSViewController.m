@@ -140,30 +140,11 @@
 {
     
     [appDelegate stopAnimatingIndicatorView];
-    
-    NSLog(@" Show the updates %@",[object valueForKey:@"Status"]);
-    
-    if ([[object valueForKey:@"Status"] boolValue])
-    {
-        if (tripArray.count>0) {
-            [tripArray removeAllObjects];
-        }
-        NSArray *arr=[object objectForKey:@"Result"];
-        for (NSDictionary *dict in arr) {
-            Trip *trip = [[Trip alloc]initWithDictionary:dict];
-            [tripArray addObject:trip];
-            
-        }
-        [tripTableView reloadData];
-        
-        [appDelegate showAlertMessage:[object valueForKey:@"Message"] tittle:nil tag:5001];
-    }else
-    {
-        if ([methodName isEqualToString:@"GetTrips.php"]) {
-            [appDelegate showAlertMessage:[object valueForKey:@"Message"] tittle:nil];
-        }
+    if ([[object valueForKey:@"status"] isEqualToString:@"ok"]){
         
     }
+    
+    
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"tripCellIdentifier";
@@ -220,8 +201,24 @@
     [self performSegueWithIdentifier:@"tripSegue" sender:self];
 }
 -(void)removeSlider:(NSNotification*)not{
+    
+    NSDictionary *newdict=[[not userInfo] objectForKey:@"text"];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:[newdict objectForKey:@"id"] forKey:@"category_id"];
+   
+    
+    
+    [self getNews:dict];
        
 }
+-(void)getNews:(NSMutableDictionary*)dict{
+    [appDelegate startAnimatingIndicatorView];
+    CLXURLConnection* temp = [[CLXURLConnection alloc] init];
+    temp.delegate = self;
+    [temp postParseInfoWithUrlPath:KU_get_category_posts WithSelector:nil callerClass:nil parameterDic:dict showloader:NO];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

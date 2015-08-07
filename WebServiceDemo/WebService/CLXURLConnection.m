@@ -106,8 +106,21 @@
         NSMutableURLRequest* urlRequest = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60];
         [urlRequest setHTTPMethod:@"POST"];
         [urlRequest addValue: @"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-        [urlRequest addValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
-        [urlRequest setHTTPBody:jsonData];
+        [urlRequest addValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
+       
+        if ([urlPath containsString:@"get_category_posts"]) {
+            NSString *post = [NSString stringWithFormat:@"&id=%@",[parameterDic valueForKey:@"id"]];
+            //NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+            
+            [urlRequest setHTTPBody:[NSData dataWithBytes:[post UTF8String] length:strlen([post UTF8String])]];
+            //[urlRequest setHTTPBody:[NSData dataWithBytes:[post UTF8String]];
+        }
+        else{
+            [urlRequest setHTTPBody:jsonData];
+        }
+        
+        
+       
         [NSURLConnection connectionWithRequest:urlRequest delegate:self];
     }else
     {
