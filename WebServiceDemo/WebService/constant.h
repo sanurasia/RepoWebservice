@@ -56,10 +56,12 @@
 #define ALERT_POSTDATA @"Please Enter at least one field! "
 #define ALERT_OVERALL @"Please Enter Overall Result !"
 #define ALERT_CODE @"Please Enter Access Code !"
+#define ALERT_PHONENO @"Please enter Phone Number!"
+#define ALERT_NAME @"Plase enter name!"
 #define POST_FEED @"Feed"
 #define POST_CONVERSATION @"Conversation"
 #define KDismissSliderNotification @"sliderNotification"
-
+#define KRemoveSlide_NOTIFICATION @"RemoveSlide_NOTIFICATION"
 
 
 
