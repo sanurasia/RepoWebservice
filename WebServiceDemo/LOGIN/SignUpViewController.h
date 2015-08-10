@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CustomTextField.h"
 #import "CLXURLConnection.h"
-
+#import "constant.h"
 @interface SignUpViewController : UIViewController<CXConnectionDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     IBOutlet UIScrollView *scrollView;
     IBOutlet CustomTextField *phoneNumber;

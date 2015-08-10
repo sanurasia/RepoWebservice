@@ -9,7 +9,7 @@
 #import "JKNEWSViewController.h"
 #import "AppDelegate.h"
 #import "constant.h"
-#import "Trip.h"
+#import "JKNews.h"
 #import  "UIImageView+WebCache.h"
 #import "LoginViewController.h"
 #import "SWRevealViewController.h"
@@ -140,33 +140,46 @@
 {
     
     [appDelegate stopAnimatingIndicatorView];
-    if ([[object valueForKey:@"status"] isEqualToString:@"ok"]){
-        
+    
+    if (tripArray.count) {
+        [tripArray removeAllObjects];
+    }
+    if ([[object valueForKey:@"Status"] boolValue]){
+        for (NSDictionary *dict in [object objectForKey:@"PostList"]) {
+            
+            JKNews *news=[[JKNews alloc] initWithDictionary:dict];
+            if (![tripArray containsObject:news]) {
+                [tripArray addObject:news];
+
+            }
+        }
+    }
+    if (tripArray.count) {
+        [tripTableView reloadData];
     }
     
     
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"tripCellIdentifier";
-    Trip *trip =[tripArray objectAtIndex:[indexPath row]];
+    JKNews *trip =[tripArray objectAtIndex:[indexPath row]];
     cell = (tripCell*)[tripTableView dequeueReusableCellWithIdentifier:cellIdentifier];
     //cell.title.text=[trip.name uppercaseString];
-    cell.name.tag = 601;
+    /*cell.name.tag = 601;
     cell.name.marqueeType = MLContinuous;
     cell.name.scrollDuration = 15.0f;
     cell.name.fadeLength = 10.0f;
     cell.name.trailingBuffer = 30.0f;
     
-    NSMutableAttributedString *  attributedString = [[NSMutableAttributedString alloc] initWithString:[trip.name uppercaseString]];
+    NSMutableAttributedString *  attributedString = [[NSMutableAttributedString alloc] initWithString:[trip.PostTitle uppercaseString]];
     [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0.123 green:0.331 blue:0.657 alpha:1.000] range:NSMakeRange(0,attributedString.length)];
     [attributedString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f] range:NSMakeRange(0, attributedString.length)];
-    cell.name.attributedText = attributedString;
-    
-    cell.from.text=trip.fromplace;
-    cell.to.text=trip.toplace;
-    if (trip.photo.length) {
+    cell.name.attributedText = attributedString;*/
+    cell.postedTime.text=trip.PostDate;
+    cell.title.text=trip.PostTitle;
+    if (trip.ImageURL.length) {
         __block UIImage *imageload;
-        NSString *url =[NSString stringWithFormat:@"http://localhost/xampp/demo/%@",trip.photo];
+        NSString *url =[NSString stringWithFormat:@"%@",trip.ImageURL];
         [cell.photoView setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil options:SDWebImageCacheMemoryOnly success:^(UIImage* image)
          {
              
@@ -194,7 +207,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
+    return 100;
 }
 - (void)rightBarButtonItem
 {
@@ -204,9 +217,11 @@
     
     NSDictionary *newdict=[[not userInfo] objectForKey:@"text"];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    [dict setValue:[newdict objectForKey:@"SubCategoryID"] forKey:@"category_id"];
+    [dict setValue:[newdict objectForKey:@"SubCategoryID"] forKey:@"CategoryID"];
+    [dict setValue:[newdict objectForKey:@"SubCategoryType"] forKey:@"CategoryType"];
   
-    [dict setValue:@"custompost" forKey:@"post_type"];
+    [dict setValue:[NSNumber numberWithInt:0] forKey:@"RecordFrom"];
+    [dict setValue:[NSNumber numberWithInt:10] forKey:@"RecordTo"];
     
     
     [self getNews:dict];
@@ -216,7 +231,7 @@
     [appDelegate startAnimatingIndicatorView];
     CLXURLConnection* temp = [[CLXURLConnection alloc] init];
     temp.delegate = self;
-    [temp postParseInfoWithUrlPath:KU_get_category_posts WithSelector:nil callerClass:nil parameterDic:dict showloader:NO];
+    [temp postParseInfoWithUrlPath:KGetCategoryPosts WithSelector:nil callerClass:nil parameterDic:dict showloader:NO];
 }
 
 

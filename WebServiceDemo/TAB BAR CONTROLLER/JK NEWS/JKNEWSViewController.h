@@ -10,7 +10,7 @@
 #import "CLXURLConnection.h"
 #import "tripCell.h"
 
-@interface JKNEWSViewController : UIViewController<CXConnectionDelegate>{
+@interface JKNEWSViewController : UIViewController<CXConnectionDelegate,UITableViewDataSource,UITableViewDelegate>{
     
     IBOutlet tripCell *cell;
     IBOutlet UITableView *tripTableView;

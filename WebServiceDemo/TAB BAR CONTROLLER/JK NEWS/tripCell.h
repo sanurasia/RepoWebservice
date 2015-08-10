@@ -17,9 +17,9 @@
 
 @property(nonatomic,weak)IBOutlet UIImageView *photoView;
 
-@property(nonatomic,weak) IBOutlet UILabel *from;
+@property(nonatomic,weak) IBOutlet UILabel *title;
 
-@property(nonatomic,weak)IBOutlet UILabel *to;
+@property(nonatomic,weak)IBOutlet UILabel *postedTime;
 
 @property(nonatomic,weak)IBOutlet MarqueeLabel *name;
 @end

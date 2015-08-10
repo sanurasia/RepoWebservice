@@ -6,8 +6,20 @@
 //  Copyright (c) 2014 Sanjay Kumar. All rights reserved.
 //
 //
-                     //
+//
+#define CORNER_RADIUS  5.0
+#define NAVIGATION_BAR_IMAGE  [UIImage imageNamed:@"navigation_bg@2x.png"]
+#define NAVIGATION_BACK_BTN   [UIImage imageNamed:@"back_arrow.png"]
+#define HEIGHT      [[UIScreen mainScreen]bounds].size.height
+#define WIDTH       [[UIScreen mainScreen]bounds].size.width
+#define X           [[UIScreen mainScreen]bounds].origin.x
+#define Y           [[UIScreen mainScreen]bounds].origin.y
+
+#define IS_IPHONE_4 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+#define IS_IPHONE_6 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )667 ) < DBL_EPSILON )
+#define IS_IPHONE_6Plus ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )960 ) < DBL_EPSILON )
+
 #define _RELEASE(x)   if(x != nil){[x release]; x = nil;}
 
 #pragma mark- ------------------------- System Version -----------------------------
@@ -18,7 +30,8 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
-#define kLoasderHeight (IS_IPHONE_5)? 568 : 480
+#define kLoasderHeight HEIGHT
+#define KLoaderWidth WIDTH
 #pragma font name
 
 #define FONT_CALIBRI    @"Calibri-Light"
@@ -28,13 +41,21 @@
 #define KISLOGIN    @"isLogin"
 
 #define KUSERDATA     @"UserData"
+#define KDEVICETOKEN  @"DeviceToken"
+#define KISINAPPPURCHASED @"IsInAppPurchased"
+#define KWEEKLYIMAGE @"WeeklyImage"
 
-#define ALERT_EMAIL @"Please enter  Email Id!"
-#define ALERT_FIRSTNAME @"Please enter  First Name!"
-#define ALERT_LASTNAME @"Please enter  Last Name!"
-#define ALERT_BIRTHDATE @"Please enter  Birth Date!"
+#define ALERT_PHONENO @"Please enter PhoneNumber!"
+#define ALERT_NAME @"Please enter Name!"
+#define ALERT_USERNAME @"Please enter UserName!"
+#define ALERT_EMAIL @"Please enter Email Id!"
+#define ALERT_FIRSTNAME @"Please enter First Name!"
+#define ALERT_AGE @"Please enter your Age!"
+#define ALERT_LASTNAME @"Please enter Last Name!"
+#define ALERT_GENDER @"Please enter your Gender!"
+#define ALERT_BIRTHDATE @"Please enter Birth Date!"
 #define ALERT_EMAILVALID @"Please enter valid Email Id!"
-#define ALERT_USERNAME @"Please enter  Username!"
+#define ALERT_USERNAME @"Please enter Username!"
 #define ALERT_PASSWORD @"Please enter password!"
 #define ALERT_PASSWORD_LENGTH @"Password length should be 6 to 10 characters only!"
 #define ALERT_PASSWORDMISMATCH @"Password and Confirm Password does'nt match! "
@@ -56,14 +77,16 @@
 #define ALERT_POSTDATA @"Please Enter at least one field! "
 #define ALERT_OVERALL @"Please Enter Overall Result !"
 #define ALERT_CODE @"Please Enter Access Code !"
-#define ALERT_PHONENO @"Please enter Phone Number!"
-#define ALERT_NAME @"Plase enter name!"
 #define POST_FEED @"Feed"
 #define POST_CONVERSATION @"Conversation"
-#define KDismissSliderNotification @"sliderNotification"
-#define KRemoveSlide_NOTIFICATION @"RemoveSlide_NOTIFICATION"
-
-
+#define GROUP_ALERT @"Groupalert"
+#define PUSH_NOTIFICATION @"PushNotification"
+#define PUSH_NOTIFICATION_HASTAGLIKED  @"HASTAGLIKED"
+#define UPDATE_WEEKLYINFO @"updateWeeklyInfo"
+#define REFRESH_ACTIVITYSCREEN @"refreshActivity"
+#define REFRESH_NOTIFICATIONSCREEN @"refreshNotification"
+#define REFRESH_NOTIFICATIONSCREENWHILELOGIN @"refreshNotificationForLogin"
+#define KRemoveSlide_NOTIFICATION @"removeslider"
 
 #define pickImageArray  [[NSArray alloc] initWithObjects:@"Camera",@"CameraRoll",@"Cancel",nil]
 

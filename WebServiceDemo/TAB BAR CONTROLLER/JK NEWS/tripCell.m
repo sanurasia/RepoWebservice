@@ -9,7 +9,7 @@
 #import "tripCell.h"
 
 @implementation tripCell
-@synthesize name,photoView,from,to;
+@synthesize name,photoView,title,postedTime;
 
 - (void)awakeFromNib {
     // Initialization code

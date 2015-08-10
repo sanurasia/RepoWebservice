@@ -108,17 +108,19 @@
         [urlRequest addValue: @"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
         [urlRequest addValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
        
-        if ([urlPath containsString:@"get_category_posts"]) {
-            NSString *post = [NSString stringWithFormat:@"&id=%@",[parameterDic valueForKey:@"id"]];
+       /* if ([urlPath containsString:@"get_category_posts"]) {
+            NSString *post = [NSString stringWithFormat:@"&id=%@&count=10&page=1",[parameterDic valueForKey:@"category_id"]];
             //NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
             
-            [urlRequest setHTTPBody:[NSData dataWithBytes:[post UTF8String] length:strlen([post UTF8String])]];
+            //[urlRequest setHTTPBody:[NSData dataWithBytes:[post UTF8String] length:strlen([post UTF8String])]];
             //[urlRequest setHTTPBody:[NSData dataWithBytes:[post UTF8String]];
+            //[postString dataUsingEncoding:NSUTF8StringEncoding]
+            [urlRequest setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
         }
         else{
             [urlRequest setHTTPBody:jsonData];
-        }
-        
+        }*/
+         [urlRequest setHTTPBody:jsonData];
         
        
         [NSURLConnection connectionWithRequest:urlRequest delegate:self];
