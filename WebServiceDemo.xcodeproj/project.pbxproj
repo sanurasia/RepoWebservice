@@ -61,6 +61,7 @@
 		1854ACBE1B788AE4003EE086 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854ACBC1B788AE4003EE086 /* SWRevealViewController.m */; };
 		1854ACC41B788C0A003EE086 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854ACC11B788C0A003EE086 /* News.m */; };
 		1854ACC51B788C0A003EE086 /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854ACC31B788C0A003EE086 /* Trip.m */; };
+		1854ACC91B788CDC003EE086 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854ACC81B788CDC003EE086 /* CustomTextField.m */; };
 		1856FAE11B15CBE30000CF2E /* Cool-Text-119120243074380.png in Resources */ = {isa = PBXBuildFile; fileRef = 1856FAE01B15CBE30000CF2E /* Cool-Text-119120243074380.png */; };
 		1856FAE31B15CBEB0000CF2E /* Cool-Text-119121221780829.png in Resources */ = {isa = PBXBuildFile; fileRef = 1856FAE21B15CBEB0000CF2E /* Cool-Text-119121221780829.png */; };
 		1856FAE51B15CD130000CF2E /* Cool-Text-119120243062761.png in Resources */ = {isa = PBXBuildFile; fileRef = 1856FAE41B15CD130000CF2E /* Cool-Text-119120243062761.png */; };
@@ -181,6 +182,8 @@
 		1854ACC11B788C0A003EE086 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		1854ACC21B788C0A003EE086 /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trip.h; sourceTree = "<group>"; };
 		1854ACC31B788C0A003EE086 /* Trip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trip.m; sourceTree = "<group>"; };
+		1854ACC71B788CDC003EE086 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
+		1854ACC81B788CDC003EE086 /* CustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
 		1856FAE01B15CBE30000CF2E /* Cool-Text-119120243074380.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cool-Text-119120243074380.png"; sourceTree = "<group>"; };
 		1856FAE21B15CBEB0000CF2E /* Cool-Text-119121221780829.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cool-Text-119121221780829.png"; sourceTree = "<group>"; };
 		1856FAE41B15CD130000CF2E /* Cool-Text-119120243062761.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cool-Text-119120243062761.png"; sourceTree = "<group>"; };
@@ -269,6 +272,7 @@
 		18296A8F1A2DBFD900B1F049 /* WebServiceDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1854ACC61B788CC2003EE086 /* CUSTOM */,
 				1854ACBF1B788BE4003EE086 /* MODEL */,
 				1854ACB81B788AB7003EE086 /* LIBRARY */,
 				1854AC7B1B7885EE003EE086 /* TAB BAR CONTROLLER */,
@@ -449,6 +453,15 @@
 				1854ACC31B788C0A003EE086 /* Trip.m */,
 			);
 			path = MODEL;
+			sourceTree = "<group>";
+		};
+		1854ACC61B788CC2003EE086 /* CUSTOM */ = {
+			isa = PBXGroup;
+			children = (
+				1854ACC71B788CDC003EE086 /* CustomTextField.h */,
+				1854ACC81B788CDC003EE086 /* CustomTextField.m */,
+			);
+			path = CUSTOM;
 			sourceTree = "<group>";
 		};
 		189F61F91B143491007697B3 /* SDWebImage */ = {
@@ -694,6 +707,7 @@
 				1854ACB31B7885EE003EE086 /* newsDetailCell.m in Sources */,
 				1854ACA81B7885EE003EE086 /* categoryCell.m in Sources */,
 				18DFD4601AFB3EEC00D2B41F /* SignUpViewController.m in Sources */,
+				1854ACC91B788CDC003EE086 /* CustomTextField.m in Sources */,
 				1854ACAC1B7885EE003EE086 /* SidebarViewController.m in Sources */,
 				1854ACB71B7885EE003EE086 /* SettingViewController.m in Sources */,
 				1854ACA51B7885EE003EE086 /* ExpenseViewController.m in Sources */,
